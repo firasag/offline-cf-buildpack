@@ -21,8 +21,6 @@ BUILD_DIR=$1
 # CACHE=$2
 DEPS_DIR="$BUILD_DIR"
 
-ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
-
 # BASH=$(which bash)
 # WGET=$(which wget)
 # CONDA_HOME="$1/.conda"
@@ -32,6 +30,8 @@ ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's
 PYTHON_3_6_4_TAR_GZ=https://buildpacks.cloudfoundry.org/dependencies/python/python-3.6.4-linux-x64-8932d266.tgz
 
 $WGET -q -O $DEPS_DIR/python-3.6.4.tgz $PYTHON_3_6_4_TAR_GZ
+
+ls -dR
 
 PYTHON_INSTALL_FILE=$(find $DEPS_DIR -name "*python-3.6.4*.tgz")
 mkdir python | cd python
