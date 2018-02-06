@@ -45,12 +45,12 @@ MINICONDA_CACHE="$CACHE/$MINICONDA_FILE"
 PROFILE_PATH="$BUILD_DIR/.profile.d/conda.sh"
 
 echo "-----> Preparing Python Environment..."
-if [ ! -e $MINICONDA_CACHE ] ; then
+#if [ ! -e $MINICONDA_CACHE ] ; then
     echo "-----> Downloading Miniconda..."
     if [ ! -d $CACHE ]; then mkdir $CACHE; fi
     $WGET -O $MINICONDA_CACHE $MINICONDA_URI
     chmod +x $MINICONDA_CACHE
-fi
+#fi
 if [ -e $CONDA_HOME ]; then 
     rm -rf $CONDA_HOME;
     echo "-----> Conda removed..."
