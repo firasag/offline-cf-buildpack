@@ -27,17 +27,17 @@ CONDA_BIN="$CONDA_HOME/bin"
 RUNTIME="$BUILD_DIR/runtime.txt"
 
 # Get the runtime version and download appropriate Miniconda
-if [ -e $RUNTIME ]; then
-    PYTHON_VERSION=$(cut -d- -f2 $RUNTIME)
-    if [ ${PYTHON_VERSION:0:1} -eq 3 ]; then
-        PYTHON_MAJOR_VERSION=3
-    else
-        PYTHON_MAJOR_VERSION=""
-    fi
-    MINICONDA_FILE="Miniconda$PYTHON_MAJOR_VERSION-$PYTHON_VERSION-Linux-x86_64.sh"
-else
+#if [ -e $RUNTIME ]; then
+#    PYTHON_VERSION=$(cut -d- -f2 $RUNTIME)
+#    if [ ${PYTHON_VERSION:0:1} -eq 3 ]; then
+#        PYTHON_MAJOR_VERSION=3
+#    else
+#        PYTHON_MAJOR_VERSION=""
+#    fi
+#    MINICONDA_FILE="Miniconda$PYTHON_MAJOR_VERSION-$PYTHON_VERSION-Linux-x86_64.sh"
+#else
     MINICONDA_FILE="Miniconda-latest-Linux-x86_64.sh"
-fi
+#fi
 
 MINICONDA_URI="http://repo.continuum.io/miniconda/$MINICONDA_FILE"
 MINICONDA_CACHE="$CACHE/$MINICONDA_FILE"
@@ -51,6 +51,7 @@ echo "-----> Preparing Python Environment..."
     $WGET -O $MINICONDA_CACHE $MINICONDA_URI
     chmod +x $MINICONDA_CACHE
 #fi
+sleep 5
 if [ -e $CONDA_HOME ]; then 
     rm -rf $CONDA_HOME;
     echo "-----> Conda removed..."
@@ -61,16 +62,17 @@ echo $($MINICONDA_CACHE -b -p $CONDA_HOME) #&> /dev/null
 
 # echo "-----> Listing $CONDA_HOME content..."
 # ls $CONDA_HOME
-
+sleep 5
 echo "-----> Installing Dependencies..."
-$CONDA_BIN/conda update --yes --quiet conda
-$CONDA_BIN/conda install --yes --quiet pip
+$CONDA_BIN/conda update --yes conda
+$CONDA_BIN/conda install --yes pip
 
+sleep 5
 echo "-----> Installing gunicorn..."
-$CONDA_BIN/conda install --yes --quiet gunicorn
+$CONDA_BIN/conda install --yes gunicorn
 
 echo "-----> Installing flask..."
-$CONDA_BIN/conda install --yes --quiet flask
+$CONDA_BIN/conda install --yes flask
 
 # echo "-----> Installing tensorflow..."
 # $CONDA_BIN/conda install --yes --quiet tensorflow
