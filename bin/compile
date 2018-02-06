@@ -29,7 +29,7 @@ DEPS_DIR="$BUILD_DIR/.cloudfoundry"
 
 PYTHON_3_6_4_TAR_GZ=https://buildpacks.cloudfoundry.org/dependencies/python/python-3.6.4-linux-x64-8932d266.tgz
 
-$WGET -q -O $DEPS_DIR/python-3.6.4.tgz $PYTHON_3_6_4_TAR_GZ
+$WGET -O $DEPS_DIR/python-3.6.4.tgz $PYTHON_3_6_4_TAR_GZ
 
 PYTHON_INSTALL_FILE=$(find $DEPS_DIR -name "*python-3.6.4*.tgz")
 mkdir python | cd python
