@@ -15,6 +15,7 @@
 # limitations under the License.
 #
 
+echo "-----> Pre"
 echo "-----> Starting compile step..."
 BUILD_DIR=$1
 CACHE=$2
