@@ -16,6 +16,7 @@
 #
 
 echo "-----> Starting compile step..."
+WGET=$(which wget)
 BUILD_DIR=$1
 # CACHE=$2
 DEPS_DIR="$BUILD_DIR/.cloudfoundry"
