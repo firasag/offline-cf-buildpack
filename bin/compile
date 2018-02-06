@@ -21,7 +21,7 @@ BUILD_DIR=$1
 # CACHE=$2
 DEPS_DIR="$BUILD_DIR"
 
-tree /
+ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
 
 # BASH=$(which bash)
 # WGET=$(which wget)
