@@ -71,8 +71,8 @@ $CONDA_BIN/conda install --yes --quiet gunicorn
 echo "-----> Installing flask..."
 $CONDA_BIN/conda install --yes --quiet flask
 
-echo "-----> Installing tensorflow..."
-$CONDA_BIN/conda install --yes --quiet tensorflow
+# echo "-----> Installing tensorflow..."
+# $CONDA_BIN/conda install --yes --quiet tensorflow
 
 # Default Conda env is root
 CONDA_ENV="root"
